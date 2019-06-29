@@ -1,0 +1,28 @@
+
+
+
+<h1>{{message}}</h1>
+
+
+
+{{#if key}}
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+    var socket = io.connect('{{host}}');
+    socket.on('{{key}}', function (data) {
+        console.log("message: " + data.message);
+
+        if (data.done) {
+            location = "/results?result={{key}}";
+        }
+    });
+
+    socket.on('connection', function (socket) {
+        console.log("connected");
+    });
+</script>
+
+
+{{/if}}

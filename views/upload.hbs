@@ -1,0 +1,39 @@
+
+
+
+
+
+
+{{#if message}}
+
+    <h1 id="message">{{message}}</h1>
+
+{{else}}
+    <h2 id="message">When the processing is done you will automatically be redirected to the result, or you can go to this link</h2>
+{{/if}}
+
+<a id="link" href="{{host}}/results?result={{key}}">{{host}}/results?result={{key}}</a>
+
+{{#if key}}
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('{{host}}');
+    socket.on('{{key}}', function (data) {
+        console.log("message: " + data.message);
+
+        if (data.done) {
+            location = "/results?result={{key}}";
+
+            document.getElementById("link").remove();
+            document.getElementById("message").innerText = "Done see the downloaded image!!";
+        }
+    });
+
+    socket.on('connection', function (socket) {
+        console.log("connected");
+    });
+</script>
+
+
+{{/if}}

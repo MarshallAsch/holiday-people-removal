@@ -1,0 +1,44 @@
+
+
+<h1>Holiday People remover</h1>
+<p>
+    Are you ever on vacation and there are always people infront of the landmark you are trying to take a picture of?
+</p>
+<p>
+    Well fear no more! If you take a bunch of pictures of the same landmark then the people can be removed using this tool.
+    Make sure that there is enough time between each picture so that the obstructions can move a little bit between photos.
+    Also try to keep the camera as stable as possible between the pictures, otherwise some ghosting will appear at the edges
+    of objects in the picture.
+</p>
+<p>
+    For best results the more pictures you have the better, but also the longer it will take.
+</p>
+
+
+
+<div class="file-upload">
+
+    <form action="/upload" method="post" enctype="multipart/form-data">
+
+        <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
+
+        <div class="image-upload-wrap">
+        <input class="file-upload-input" name="images"  type='file' multiple onchange="readURL(this);" accept="image/*" />
+        <div class="drag-text">
+            <h3>Drag and drop a file or select add Image</h3>
+        </div>
+    </div>
+        <div class="file-upload-content">
+        <img class="file-upload-image" src="#" alt="your image" />
+        <div class="image-title-wrap">
+            <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Images</span></button>
+            <button type="submit" onclick="removeUpload()" class="upload-button">Upload and remove the pesky people</button>
+
+        </div>
+    </div>
+</form>
+</div>
+
+
+<script src="/js/fileUpload.js"></script>
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
