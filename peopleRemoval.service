@@ -1,0 +1,31 @@
+#
+# This is a systemd service
+# This gets put in /etc/systemd/system/
+#
+# This is controlled by using
+# sudo systemctl [start|stop|restart|status] peopleRemoval.service
+#
+#
+# To view the log use the journalctl command
+#
+
+[Unit]
+Description=Node.js website for image proccessing
+
+[Service]
+ExecStart=/usr/bin/node /opt/node/holiday-people-removal/app.js
+# Required on some systems
+WorkingDirectory=/opt/node/holiday-people-removal
+Restart=always
+ # Restart service after 10 seconds if node service crashes
+ RestartSec=10
+ # Output to syslog
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=nodejs-image
+#User=<alternate user>
+#Group=<alternate group>
+#Environment=NODE_ENV=production PORT=1337
+
+[Install]
+WantedBy=multi-user.target

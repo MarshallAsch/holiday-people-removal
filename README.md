@@ -11,7 +11,6 @@ To get started make sure you have all the python modules installed
 
 `pip install scipy`
 
-`pip install uuid`
 
 `pip install pytest-shutil`
 
