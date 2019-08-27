@@ -1,4 +1,4 @@
-#!/usr/local/bin/python
+#!/usr/bin/env python3
 
 
 # This program will take a directory of images and remove any objects that are moving

@@ -20,7 +20,7 @@ var storage = multer.diskStorage({
 
     // make directory if it does not exist
     if (!fs.existsSync(dirName)){
-      fs.mkdirSync(dirName);
+      fs.mkdirSync(dirName, {recursive: true});
     }
 
     cb(null, dirName)

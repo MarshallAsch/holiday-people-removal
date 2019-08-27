@@ -12,7 +12,7 @@ status=$?
 if [ $status -eq 0 ]
 then
     echo "success"
-    cp imageProcessing/final_noSky.png "public/generated/$outputName"
+    mv imageProcessing/final_noSky.png "public/generated/$outputName"
 fi
 
 echo "done"
